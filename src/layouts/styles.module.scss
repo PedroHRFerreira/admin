@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  height: 100vh;
+
+  .aside {
+    height: 100%;
+    transition: width 0.3s ease;
+    background-color: #fafafa;
+    border-right: 2px solid #ccc;
+    position: relative;
+    z-index: 1;
+
+    &.open {
+      width: 250px;
+    }
+    &.closed {
+      width: 50px;
+    }
+
+    .toggleArrow {
+      position: absolute;
+      top: 1rem;
+      right: -12px;
+      z-index: 2;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .menuContent {
+      margin-top: 50px;
+    }
+  }
+
+  .main {
+    flex: 1;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.iconOpen,
+.iconClosed {
+  transition: transform 0.3s ease;
+}
+
+.iconOpen {
+  transform: rotate(0deg);
+}
+
+.iconClosed {
+  transform: rotate(180deg);
+}

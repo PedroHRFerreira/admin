@@ -1,30 +1,31 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/assets/globals.scss";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import style from "./styles.module.scss";
+import { useState } from "react";
+import AtomsIconSvg from "@/components/atoms/IconSvg/index";
 
 interface RootLayoutProps {
   children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const [isOpen, setIsOpen] = useState(true);
+
   return (
-    <div className={`${geistSans.variable} ${geistMono.variable}`}>
-      <header>
-        <h1>Header do Site</h1>
-      </header>
-      <main>{children}</main>
-      <footer>
-        <p>Footer do Site</p>
-      </footer>
+    <div className={style.container}>
+      <aside className={`${style.aside} ${isOpen ? style.open : style.closed}`}>
+        <span className={style.toggleArrow} onClick={() => setIsOpen(!isOpen)}>
+          <AtomsIconSvg
+            className={isOpen ? style.iconOpen : style.iconClosed}
+            name="seta-para-a-esquerda"
+          />
+        </span>
+        {isOpen && (
+          <div className={style.menuContent}>
+            <p>Conteúdo do Menu</p>
+          </div>
+        )}
+      </aside>
+      <main className={style.main}>{children}</main>
     </div>
   );
 }
