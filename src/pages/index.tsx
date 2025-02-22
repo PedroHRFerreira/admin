@@ -1,11 +1,10 @@
 import RootLayout from "@/layouts/RootLayout";
+import TemplateHome from "@/components/templates/Home/Index";
 
 export default function Home() {
   return (
     <RootLayout>
-      <article>
-        <h1>Tela de Home</h1>
-      </article>
+      <TemplateHome />
     </RootLayout>
   );
 }

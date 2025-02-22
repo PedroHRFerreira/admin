@@ -6,7 +6,7 @@
     height: 100%;
     transition: width 0.3s ease;
     background-color: #3c3d37;
-    border-right: 2px dotted #fff;
+    border-right: 2px dotted #ecdfcc;
     position: relative;
     z-index: 1;
 
@@ -30,7 +30,7 @@
 
   .main {
     flex: 1;
-    padding: 1rem;
+    padding: 32px;
     position: sticky;
     top: 0;
   }
