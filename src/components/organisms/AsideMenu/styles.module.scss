@@ -10,6 +10,7 @@
 .aside {
   width: 100%;
   @include flex();
+  margin-top: 100px;
 
   &__menu {
     @include flex(false);
@@ -27,6 +28,7 @@
 
   .active {
     font-weight: bold;
+    color: #ecdfcc;
   }
 
   .active::before {
@@ -35,7 +37,7 @@
     left: -72px;
     width: 20px;
     height: 10px;
-    background-color: red;
+    background-color: #ecdfcc;
 
     display: flex;
     justify-content: center;

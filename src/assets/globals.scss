@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 $primary-color: #007bff;
 $secondary-color: #6c757d;
 $background-color: #f8f9fa;
@@ -16,7 +18,8 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
   line-height: 1.5;
   color: #fff;
   background-color: #1e201e;
@@ -87,7 +90,7 @@ a {
   color: inherit;
 
   &:hover {
-    color: $primary-color;
+    color: #ecdfcc;
   }
 }
 

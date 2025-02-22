@@ -5,11 +5,11 @@ const OrganismsAsideMenu = () => {
   const router = useRouter();
 
   const paginate = [
-    { id: 1, route: "/", name: "Home" },
-    { id: 2, route: "/listagem", name: "Listagem" },
-    { id: 3, route: "/gastos", name: "Gastos" },
-    { id: 4, route: "/tabela", name: "Tabela" },
-    { id: 5, route: "/metas", name: "Metas" },
+    { id: 1, icon: "botao-de-inicio", route: "/", name: "Home" },
+    { id: 2, icon: "listagem", route: "/listagem", name: "Listagem" },
+    { id: 3, icon: "mao", route: "/gastos", name: "Gastos" },
+    { id: 4, icon: "tabela-de-edicao", route: "/tabela", name: "Tabela" },
+    { id: 5, icon: "meta", route: "/metas", name: "Metas" },
   ];
 
   return (

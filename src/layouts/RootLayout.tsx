@@ -22,11 +22,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             name="seta-para-a-esquerda"
           />
         </span>
-        {isOpen && (
-          <div className={style.menuContent}>
-            <OrganismsAsideMenu />
-          </div>
-        )}
+        <OrganismsAsideMenu />
       </aside>
       <main className={style.main}>{children}</main>
     </div>
