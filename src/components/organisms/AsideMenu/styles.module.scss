@@ -1,0 +1,44 @@
+@mixin flex($istrue: true) {
+  display: flex;
+  flex-direction: column;
+  @if istrue {
+    align-items: center;
+  } @else {
+    justify-content: center;
+  }
+}
+.aside {
+  width: 100%;
+  @include flex();
+
+  &__menu {
+    @include flex(false);
+    gap: 12px;
+  }
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 10px;
+    position: relative;
+  }
+
+  .active {
+    font-weight: bold;
+  }
+
+  .active::before {
+    content: "";
+    position: absolute;
+    left: -72px;
+    width: 20px;
+    height: 10px;
+    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

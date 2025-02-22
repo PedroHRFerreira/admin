@@ -5,22 +5,22 @@
   .aside {
     height: 100%;
     transition: width 0.3s ease;
-    background-color: #fafafa;
-    border-right: 2px solid #ccc;
+    background-color: #3c3d37;
+    border-right: 2px dotted #fff;
     position: relative;
     z-index: 1;
 
     &.open {
-      width: 250px;
+      width: 200px;
     }
     &.closed {
-      width: 50px;
+      width: 100px;
     }
 
     .toggleArrow {
       position: absolute;
       top: 1rem;
-      right: -12px;
+      right: -15px;
       z-index: 2;
       font-size: 1.5rem;
       cursor: pointer;
