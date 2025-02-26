@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import style from "./styles.module.scss";
 
 const OrganismsAsideMenu = () => {
@@ -6,7 +7,7 @@ const OrganismsAsideMenu = () => {
 
   const paginate = [
     { id: 1, icon: "botao-de-inicio", route: "/", name: "Home" },
-    { id: 2, icon: "listagem", route: "/listagem", name: "Listagem" },
+    { id: 2, icon: "listagem", route: "/produtos", name: "Produtos" },
     { id: 3, icon: "mao", route: "/gastos", name: "Gastos" },
     { id: 4, icon: "tabela-de-edicao", route: "/tabela", name: "Tabela" },
     { id: 5, icon: "meta", route: "/metas", name: "Metas" },
@@ -20,7 +21,7 @@ const OrganismsAsideMenu = () => {
             key={item.id}
             className={router.pathname === item.route ? style.active : ""}
           >
-            <a href={item.route}>{item.name}</a>
+            <Link href={item.route}>{item.name}</Link>
           </li>
         ))}
       </ul>

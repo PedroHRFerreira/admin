@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  border: 1px solid #a8a295;
+  border-radius: 6px;
+  border-collapse: collapse; // Evita espaços entre as células
+  overflow-x: auto;
+
+  &__th,
+  &__td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #a8a295;
+    white-space: nowrap; // Evita que os conteúdos quebrem a linha
+  }
+
+  &__tbody {
+    .table__row {
+      display: table-row; // Mantém a estrutura da tabela
+      width: 100%;
+
+      &:hover {
+        background-color: #5d5d5d;
+      }
+    }
+  }
+}
