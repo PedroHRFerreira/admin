@@ -1,47 +1,55 @@
-import React, { useState } from "react";
-import AtomsText from "@/components/atoms/Text/Index";
+import React, { useState, useEffect } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import MoleculesModal from "@/components/molecules/Modal";
 import MoleculesFormInputFloatLabel from "@/components/molecules/FormInputFloatLabel";
+import AtomsText from "@/components/atoms/Text/Index";
 import { usePostProduct } from "@/store/useFetchProducts";
 import style from "./styles.module.scss";
 
-const OrganismsProducts = () => {
+const OrganismsProducts = ({ onProductAdded }: any) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [value, setValue] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handleOpenModal = () => {
-    setIsModalOpen(true);
-  };
+  const handleOpenModal = () => setIsModalOpen(true);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    resetFields();
-  };
-
-  const resetFields = () => {
     setName("");
     setQuantity("");
     setValue("");
+    setDescription("");
   };
 
   const handleSaveModal = async () => {
     if (!name.trim() || !quantity || !value) {
-      alert("Preencha todos os campos!");
+      toast.error("Preencha todos os campos!");
       return;
     }
 
     const product = {
       name,
       quantity: parseInt(quantity, 10),
-      value: parseFloat(value.replace("R$", "").replace(",", ".")),
+      price: parseFloat(value.replace("R$", "").replace(",", ".")),
+      description,
     };
-    await usePostProduct(product);
+
+    const response = await usePostProduct(product);
+
+    if (response?.message) {
+      toast.success("Produto adicionado com sucesso!");
+      handleCloseModal();
+      onProductAdded();
+    } else {
+      toast.error("Erro ao adicionar produto.");
+    }
   };
 
   return (
     <section className={style.products}>
+      <Toaster />
       <AtomsText fontSize="24px" fontWeight="bold" color="#fff">
         Listagem de produtos
       </AtomsText>
@@ -55,35 +63,36 @@ const OrganismsProducts = () => {
         onSave={handleSaveModal}
         onCancel={handleCloseModal}
       >
-        <div>
-          <MoleculesFormInputFloatLabel
-            label="Nome do produto"
-            value={name}
-            onInput={setName}
-            errors={[]}
-            isRequired
-          />
-        </div>
-        <div>
-          <MoleculesFormInputFloatLabel
-            label="Quantidade"
-            value={quantity}
-            onInput={setQuantity}
-            mask="quantity"
-            errors={[]}
-            isRequired
-          />
-        </div>
-        <div>
-          <MoleculesFormInputFloatLabel
-            label="Preço"
-            value={value}
-            onInput={setValue}
-            mask="currency"
-            errors={[]}
-            isRequired
-          />
-        </div>
+        <MoleculesFormInputFloatLabel
+          label="Nome do produto"
+          value={name}
+          onInput={setName}
+          errors={[]}
+          isRequired
+        />
+        <MoleculesFormInputFloatLabel
+          label="Quantidade"
+          value={quantity}
+          onInput={setQuantity}
+          mask="quantity"
+          errors={[]}
+          isRequired
+        />
+        <MoleculesFormInputFloatLabel
+          label="Preço"
+          value={value}
+          onInput={setValue}
+          mask="currency"
+          errors={[]}
+          isRequired
+        />
+        <MoleculesFormInputFloatLabel
+          label="Descrição"
+          value={description}
+          onInput={setDescription}
+          errors={[]}
+          isRequired
+        />
       </MoleculesModal>
     </section>
   );

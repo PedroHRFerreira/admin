@@ -1,24 +1,68 @@
+import React, { useState, useEffect } from "react";
 import style from "./styles.module.scss";
 import MoleculesTable from "@/components/molecules/Table/Index";
 import OrganismsProducts from "@/components/organisms/Products/Index";
+import { useFetchProducts, useDeleteProduct } from "@/store/useFetchProducts";
+import { Toaster, toast } from "react-hot-toast";
+
 const TemplateProducts = () => {
+  const { data, loading, error, refetch }: any = useFetchProducts();
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      await refetch();
+    };
+
+    loadProducts();
+  }, [refreshKey, refetch]);
+
+  const rows =
+    data?.products?.map((product: any) => [
+      product.name,
+      product.quantity.toString(),
+      `R$ ${product.price}`,
+    ]) || [];
+
+  const handleProductAdded = () => {
+    setRefreshKey((prev) => prev + 1);
+  };
+
+  const handleDeleteProduct = async (id: number) => {
+    try {
+      await useDeleteProduct(id);
+      toast.success("Produto removido com sucesso!");
+      setRefreshKey((prev) => prev + 1);
+    } catch (error) {
+      toast.error("Erro ao remover produto");
+    }
+  };
+
   return (
-    <section className={style.products}>
-      <OrganismsProducts />
-      <MoleculesTable
-        headers={["Produto", "Quantidade", "Preço"]}
-        rows={[
-          ["Mouse", "10", "R$ 50"],
-          ["Teclado", "5", "R$ 100"],
-          ["Monitor", "2", "R$ 800"],
-        ]}
-        renderExtra={(rowIndex: any) => (
-          <button onClick={() => alert(`Editar linha ${rowIndex + 1}`)}>
-            Editar
-          </button>
-        )}
-      />
+    <section
+      className={`${style.products} ${loading || error ? "loading" : ""}`}
+    >
+      {loading && <div className="anim-loading"></div>}
+      {!loading && !error && (
+        <>
+          <OrganismsProducts onProductAdded={handleProductAdded} />
+          <MoleculesTable
+            headers={["Produto", "Quantidade", "Preço"]}
+            rows={rows}
+            renderExtra={(rowIndex: number) => (
+              <button
+                className={style.button_delete}
+                onClick={() => handleDeleteProduct(data.products[rowIndex].id)}
+              >
+                Excluir
+              </button>
+            )}
+          />
+          <Toaster />
+        </>
+      )}
     </section>
   );
 };
+
 export default TemplateProducts;

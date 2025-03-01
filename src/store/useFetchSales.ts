@@ -13,6 +13,6 @@ export interface SalesData {
 }
 
 export function useFetchSales() {
-  const url = "http://localhost:8000/sales";
+  const url = "http://localhost:8000/api/sales";
   return useFetch<SalesData>(url);
 }

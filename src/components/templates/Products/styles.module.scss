@@ -1,5 +1,6 @@
 .products {
-  width: 1600px;
+  max-width: 1600px;
+  width: 100%;
   height: 850px;
   overflow: auto;
   background: #3c3d37;
@@ -7,4 +8,43 @@
   padding: 32px;
   z-index: 999;
   box-shadow: 0 0 10px 0 #ecdfcc;
+
+  .button_delete {
+    padding: 8px 16px;
+    background: linear-gradient(145deg, #dc3545, #c82333);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &::before {
+      content: "🗑️";
+    }
+
+    &:hover {
+      background: linear-gradient(145deg, #c82333, #bd2130);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    &:focus {
+      outline: 2px solid #ff475722;
+      outline-offset: 2px;
+    }
+
+    &:disabled {
+      background: #6c757d;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+  }
 }

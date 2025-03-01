@@ -33,24 +33,25 @@
   color: var(--labelColor);
   transition: color 0.5s;
   animation: anim-hide-label 1s ease forwards;
+  max-width: calc(100% - 16px);
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  box-sizing: border-box;
 }
 
 @keyframes anim-hide-label {
   0% {
     top: 0;
-    left: 0;
-    opacity: 1;
-  }
-  50% {
-    top: 40%;
     left: -5px;
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    top: 55%;
+    top: 5%;
     left: -5px;
     font-size: var(--fontSizeTextP5);
-    opacity: 0;
+    opacity: 1;
   }
 }
 

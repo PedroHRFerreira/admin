@@ -1,22 +1,19 @@
-// Variáveis de estilo
-$modal-bg: #202124; // Cor de fundo do container (dark)
-$overlay-bg: rgba(0, 0, 0, 0.8); // Fundo do overlay (um pouco mais escuro)
-$primary-color: #4285f4; // Azul estilo Google
-$secondary-color: #5f6368; // Cinza estilo Google
-$text-color: #e8eaed; // Cor do texto (quase branco)
+$modal-bg: #202124;
+$overlay-bg: rgba(0, 0, 0, 0.8);
+$primary-color: #4285f4;
+$secondary-color: #5f6368;
+$text-color: #e8eaed;
 $modal-width: 600px;
 $modal-height: auto;
 $modal-border-radius: 8px;
 $box-shadow-color: rgba(0, 0, 0, 0.3);
 
-// Mixin para centralizar
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-// Overlay cobrindo a tela toda
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -39,31 +36,23 @@ $box-shadow-color: rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 32px; // espaçamento interno
-
-  // Caso queira um layout mais horizontal (como no exemplo do Google),
-  // você pode usar display flex e organizar children em colunas, mas
-  // aqui deixaremos o fluxo em coluna simples para simplificar.
+  padding: 32px;
 }
 
-// Cabeçalho do modal
 .modalHeader {
-  margin-bottom: 24px; // espaço entre header e conteúdo
+  margin-bottom: 24px;
 
   h2 {
     margin: 0;
     font-size: 28px;
-    font-weight: 400; // estilo mais leve (opcional)
+    font-weight: 400;
   }
 }
 
-// Conteúdo do modal
 .modalContent {
   flex: 1;
   overflow-y: auto;
 
-  // Exemplo de estilo para inputs dentro do modal
-  // (caso deseje inputs escuros, etc.)
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -73,14 +62,10 @@ $box-shadow-color: rgba(0, 0, 0, 0.3);
     margin-top: 8px;
     margin-bottom: 16px;
     background-color: #303134;
-    border: 1px solid #5f6368;
+    border: 1px solid #303134;
     border-radius: 4px;
     color: #e8eaed;
     outline: none;
-
-    &:focus {
-      border-color: lighten(#5f6368, 10%);
-    }
   }
 }
 
