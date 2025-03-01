@@ -43,6 +43,7 @@ const TemplateProducts = () => {
       className={`${style.products} ${loading || error ? "loading" : ""}`}
     >
       {loading && <div className="anim-loading"></div>}
+      {error && <p>Erro ao buscar dados: {error}</p>}
       {!loading && !error && (
         <>
           <OrganismsProducts onProductAdded={handleProductAdded} />
