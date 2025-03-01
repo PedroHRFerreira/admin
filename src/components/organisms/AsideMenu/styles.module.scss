@@ -23,24 +23,22 @@
     align-items: center;
     list-style: none;
     padding: 10px;
-    position: relative;
   }
-
   .active {
     font-weight: bold;
     color: #ecdfcc;
-  }
 
-  .active::before {
-    content: "";
-    position: absolute;
-    left: -72px;
-    width: 20px;
-    height: 10px;
-    background-color: #ecdfcc;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      width: 15px;
+      height: 10px;
+      background-color: #ecdfcc;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }

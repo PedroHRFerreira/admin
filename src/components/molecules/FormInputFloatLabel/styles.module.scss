@@ -1,0 +1,127 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.required .labelPlaceholder::after {
+  content: "*";
+  color: var(--auxiliaryRed6);
+}
+
+.popperpos {
+  position: absolute;
+  top: 50%;
+  margin-left: -35px;
+  width: 20px;
+  background-color: var(---neutralLightGrey);
+}
+
+.wrapperInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.labelPlaceholder {
+  background: var(--neutralLightGrey);
+  border-radius: 500px;
+  padding: 0 8px;
+  position: absolute;
+  transform: translate(13px, -20%);
+  pointer-events: none;
+  color: var(--labelColor);
+  transition: color 0.5s;
+  animation: anim-hide-label 1s ease forwards;
+  max-width: calc(100% - 16px);
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+  box-sizing: border-box;
+}
+
+@keyframes anim-hide-label {
+  0% {
+    top: 0;
+    left: -5px;
+    opacity: 0;
+  }
+  100% {
+    top: 5%;
+    left: -5px;
+    font-size: var(--fontSizeTextP5);
+    opacity: 1;
+  }
+}
+
+.labelPlaceholder.disabled {
+  color: var(--auxiliaryRed6);
+}
+
+.showLabel .labelPlaceholder {
+  animation: anim-show-label 0.75s ease forwards;
+}
+
+@keyframes anim-show-label {
+  from {
+    top: 50%;
+    left: -5px;
+    font-size: var(--fontSizeTextP5);
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    left: 0;
+    font-size: var(--fontSizeTextP5);
+    opacity: 1;
+  }
+}
+
+.boxClose {
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.close {
+  height: 16px;
+  width: 16px;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--auxiliaryRed6);
+}
+
+.close::before {
+  content: "\2715";
+  color: var(--neutralLightGrey);
+  font-size: 9px;
+  line-height: 16px;
+  display: block;
+}
+
+.errors {
+  text-align: justify;
+  color: var(--auxiliaryRed6);
+  padding: 8px 0;
+}
+
+.listError {
+  text-decoration: none;
+}
+
+.listError li {
+  font-size: var(--fontSizeTextP6);
+}
+
+.inputText {
+  outline: none;
+  border: 1px solid;
+  border-radius: 4px;
+}
+
+.icon {
+  font-style: normal;
+  margin-left: 5px;
+}
