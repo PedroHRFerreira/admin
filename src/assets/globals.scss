@@ -23,7 +23,7 @@ body {
   font-optical-sizing: auto;
   line-height: 1.5;
   color: #fff;
-  background-color: #1e201e;
+  background-color: #010409;
 }
 
 @mixin responsive($breakpoint) {
@@ -91,7 +91,7 @@ a {
   color: inherit;
 
   &:hover {
-    color: #ecdfcc;
+    color: #c2c5c9;
   }
 }
 

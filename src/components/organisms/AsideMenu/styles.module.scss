@@ -1,6 +1,6 @@
 @mixin flex($istrue: true) {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   @if istrue {
     align-items: center;
   } @else {
@@ -8,12 +8,10 @@
   }
 }
 .aside {
-  width: 100%;
-  @include flex();
-  margin-top: 100px;
+  padding: 12px;
 
   &__menu {
-    @include flex(false);
+    @include flex();
     gap: 12px;
   }
 
@@ -26,19 +24,15 @@
   }
   .active {
     font-weight: bold;
-    color: #ecdfcc;
+    color: #f0f6fc;
 
     &::before {
       content: "";
       position: absolute;
-      left: -10px;
-      width: 15px;
-      height: 10px;
-      background-color: #ecdfcc;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      bottom: 0;
+      border-left: 7.5px solid transparent;
+      border-right: 7.5px solid transparent;
+      border-bottom: 8px solid #c2c5c9;
     }
   }
 }

@@ -2,20 +2,20 @@
   width: 100%;
   border: 1px solid #a8a295;
   border-radius: 6px;
-  border-collapse: collapse; // Evita espaços entre as células
+  border-collapse: collapse;
   overflow-x: auto;
 
   &__th,
   &__td {
-    padding: 12px;
-    text-align: left;
+    padding: 16px;
+    text-align: center;
     border-bottom: 1px solid #a8a295;
-    white-space: nowrap; // Evita que os conteúdos quebrem a linha
+    white-space: nowrap;
   }
 
   &__tbody {
     .table__row {
-      display: table-row; // Mantém a estrutura da tabela
+      display: table-row;
       width: 100%;
 
       &:hover {

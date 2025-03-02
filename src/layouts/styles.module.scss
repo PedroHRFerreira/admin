@@ -1,31 +1,15 @@
 .container {
   display: flex;
-  height: 100vh;
+  flex-direction: column;
 
   .aside {
-    height: 100%;
+    width: 100%;
+    height: auto;
     transition: width 0.3s ease;
-    background-color: #3c3d37;
-    border-right: 2px dotted #ecdfcc;
+    background-color: #010409;
+    border-bottom: 1px solid #3d444d;
     position: relative;
     z-index: 1;
-
-    &.open {
-      width: 200px;
-    }
-    &.closed {
-      width: 100px;
-    }
-
-    .toggleArrow {
-      position: absolute;
-      top: 50px;
-      right: -15px;
-      z-index: 2;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #000;
-    }
   }
 
   .main {
@@ -34,17 +18,4 @@
     position: sticky;
     top: 0;
   }
-}
-
-.iconOpen,
-.iconClosed {
-  transition: transform 0.3s ease;
-}
-
-.iconOpen {
-  transform: rotate(0deg);
-}
-
-.iconClosed {
-  transform: rotate(180deg);
 }
