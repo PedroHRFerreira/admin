@@ -28,6 +28,7 @@ const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
 
 const options: ChartOptions<"bar"> = {
   responsive: true,
+  maintainAspectRatio: false,
   plugins: {
     legend: { position: "top" },
     title: { display: true, text: "Exemplo de Gráfico de Barras" },
@@ -63,7 +64,9 @@ const OrganismsGraphic = () => {
           <AtomsText fontSize="24px" fontWeight="bold" color="#fff">
             Home
           </AtomsText>
-          <Bar data={chartData} options={options} />
+          <div style={{ width: "100%", height: "690px" }}>
+            <Bar data={chartData} options={options} />
+          </div>
         </>
       )}
     </section>

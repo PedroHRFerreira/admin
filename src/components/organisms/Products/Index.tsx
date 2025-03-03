@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import MoleculesModal from "@/components/molecules/Modal";
 import MoleculesFormInputFloatLabel from "@/components/molecules/FormInputFloatLabel";
