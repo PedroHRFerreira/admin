@@ -33,6 +33,32 @@ const options: ChartOptions<"line"> = {
   plugins: {
     legend: { position: "top" },
     title: { display: true, text: "Gráfico de gastos em linhas" },
+    tooltip: {
+      callbacks: {
+        label: (context) => {
+          const label = context.dataset.label || "";
+          const value = context.raw;
+          return `${label}: R$ ${Number(value).toLocaleString("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}`;
+        },
+      },
+    },
+  },
+  scales: {
+    y: {
+      min: 0,
+      max: 1000,
+      ticks: {
+        callback: (value) => {
+          return `R$ ${Number(value).toLocaleString("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}`;
+        },
+      },
+    },
   },
 };
 

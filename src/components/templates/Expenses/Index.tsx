@@ -8,9 +8,7 @@ import OrganismsModalGoals from "@/components/organisms/ModalGoals/Index";
 const TemplateExpenses = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [goal, setGoal] = useState(false);
-  const teste = () => {
-    console.log("teste");
-  };
+
   const currentMonth = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 

@@ -29,7 +29,7 @@ const OrganismsModalCurrent = ({ isModalOpen, handleCloseModal }: any) => {
         fontWeight="bold"
         color={monthData?.more_current_month ? "red" : "green"}
       >
-        {monthData?.value}
+        {monthData?.value || 0}
       </AtomsText>
     </MoleculesModal>
   );

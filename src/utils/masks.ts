@@ -1,7 +1,7 @@
 export function quantityMask(value: string): string {
   let onlyNumbers = value.replace(/\D/g, "");
 
-  onlyNumbers = onlyNumbers.slice(0, 2);
+  onlyNumbers = onlyNumbers.slice(0, 3);
 
   return onlyNumbers;
 }
