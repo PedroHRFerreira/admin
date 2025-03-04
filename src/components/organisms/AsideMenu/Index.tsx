@@ -9,8 +9,7 @@ const OrganismsAsideMenu = () => {
     { id: 1, icon: "botao-de-inicio", route: "/", name: "Home" },
     { id: 2, icon: "listagem", route: "/produtos", name: "Produtos" },
     { id: 3, icon: "mao", route: "/gastos", name: "Gastos" },
-    { id: 4, icon: "tabela-de-edicao", route: "/tabela", name: "Tabela" },
-    { id: 5, icon: "meta", route: "/metas", name: "Metas" },
+    { id: 4, icon: "meta", route: "/metas", name: "Metas" },
   ];
 
   return (

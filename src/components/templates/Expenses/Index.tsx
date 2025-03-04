@@ -3,14 +3,20 @@ import style from "./styles.module.scss";
 import MoleculesDashboard from "@/components/molecules/Dashboard/index";
 import OrganismsGraphicLine from "@/components/organisms/GraphicLine/Index";
 import OrganismsModalCurrent from "@/components/organisms/ModalCurrent/Index";
+import OrganismsModalGoals from "@/components/organisms/ModalGoals/Index";
 
 const TemplateExpenses = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [goal, setGoal] = useState(false);
   const teste = () => {
     console.log("teste");
   };
   const currentMonth = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
+  const goalsMonth = () => setGoal(true);
+  const closeGoals = () => setGoal(false);
+
   const cards = [
     {
       id: 1,
@@ -24,7 +30,7 @@ const TemplateExpenses = () => {
       title: "Metas de gastos",
       subTitle: "Definir metas para o gastos",
       text: "Metas de gastos",
-      onFooterClick: teste,
+      onFooterClick: goalsMonth,
     },
   ];
 
@@ -44,6 +50,7 @@ const TemplateExpenses = () => {
         isModalOpen={isModalOpen}
         handleCloseModal={closeModal}
       />
+      <OrganismsModalGoals isModalOpen={goal} handleCloseModal={closeGoals} />
       <OrganismsGraphicLine />
     </article>
   );
