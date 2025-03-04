@@ -32,7 +32,7 @@ const options: ChartOptions<"line"> = {
   maintainAspectRatio: false,
   plugins: {
     legend: { position: "top" },
-    title: { display: true, text: "Exemplo de Gráfico de Linhas" },
+    title: { display: true, text: "Gráfico de gastos em linhas" },
   },
 };
 
@@ -43,7 +43,7 @@ const OrganismsGraphicLine = () => {
     labels: data?.expenses?.month.map((item) => item.label) || [],
     datasets: [
       {
-        label: "Vendas",
+        label: "Gastos",
         data: data?.expenses?.month.map((item) => item.value) || [],
         borderColor: "rgba(75,192,192,1)",
         backgroundColor: "rgba(75,192,192,0.2)",

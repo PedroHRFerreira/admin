@@ -27,7 +27,7 @@ const OrganismsModalCurrent = ({ isModalOpen, handleCloseModal }: any) => {
       <AtomsText
         fontSize="24px"
         fontWeight="bold"
-        color={monthData?.more_current_month ? "green" : "red"}
+        color={monthData?.more_current_month ? "red" : "green"}
       >
         {monthData?.value}
       </AtomsText>

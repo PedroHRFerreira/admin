@@ -31,7 +31,7 @@ const OrganismsModalGoals = ({ isModalOpen, handleCloseModal }: any) => {
     <MoleculesModal
       isOpen={isModalOpen}
       textSave="Calcular"
-      title="Adicionar produto"
+      title="valor unitário"
       onSave={postGoal}
       onCancel={handleCloseModal}
     >

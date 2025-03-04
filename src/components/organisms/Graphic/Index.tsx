@@ -31,7 +31,7 @@ const options: ChartOptions<"bar"> = {
   maintainAspectRatio: false,
   plugins: {
     legend: { position: "top" },
-    title: { display: true, text: "Exemplo de Gráfico de Barras" },
+    title: { display: true, text: "Gráfico de vendas em barras" },
   },
 };
 

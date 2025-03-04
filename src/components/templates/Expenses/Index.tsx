@@ -28,8 +28,8 @@ const TemplateExpenses = () => {
     {
       id: 2,
       title: "Metas de gastos",
-      subTitle: "Definir metas para o gastos",
-      text: "Metas de gastos",
+      subTitle: "Definir valor unitário",
+      text: "Calcular o valor unitário",
       onFooterClick: goalsMonth,
     },
   ];
