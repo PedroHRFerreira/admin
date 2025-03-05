@@ -25,20 +25,15 @@ const OrganismsGoalMonth = () => {
 
   const { data, refetch } = usefetchGoalMonth();
   const totalPrice = Number(data?.total_price) || 0;
-  const initialGoal = totalPrice + totalPrice * 0.2;
   const currentGoal = Number(data?.goal_value) || 0;
   const progress =
-    currentGoal >= initialGoal
-      ? 100
-      : ((initialGoal - currentGoal) / (initialGoal - totalPrice)) * 100;
-  const progressCapped = Math.max(0, Math.min(progress, 100));
+    totalPrice > 0 ? Math.min((currentGoal / totalPrice) * 100, 100) : 0;
 
   const updateValue = async () => {
     if (!value) {
       toast.error("Informe um valor antes de salvar.");
       return;
     }
-
     const numericValue = parseFloat(
       value.replace("R$", "").replace(".", "").replace(",", ".").trim()
     );
@@ -46,7 +41,6 @@ const OrganismsGoalMonth = () => {
       toast.error("Informe um valor válido.");
       return;
     }
-
     try {
       await useUpdateGoal({ value: numericValue });
       toast.success("Meta atualizada com sucesso!");
@@ -65,7 +59,7 @@ const OrganismsGoalMonth = () => {
       </AtomsText>
       <div className={style.circule}>
         <CircularProgressbarWithChildren
-          value={progressCapped}
+          value={progress}
           styles={buildStyles({
             pathColor: "green",
             trailColor: "#d6d6d6",
@@ -73,7 +67,7 @@ const OrganismsGoalMonth = () => {
           })}
         >
           <AtomsText fontSize="24px" fontWeight="bold" color="green">
-            {currencyMask(currentGoal)}
+            {currencyMask(totalPrice)}
           </AtomsText>
         </CircularProgressbarWithChildren>
       </div>
