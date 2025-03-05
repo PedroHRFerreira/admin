@@ -12,11 +12,11 @@ import { Toaster, toast } from "react-hot-toast";
 
 const OrganismsGoalMonth = () => {
   const [value, setValue] = useState("");
+
   const currencyMask = (value: any) => {
     const numericValue =
       typeof value === "number" ? value : parseFloat(value.replace(",", "."));
     if (isNaN(numericValue)) return "R$ 0,00";
-
     return numericValue.toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL",
@@ -24,13 +24,14 @@ const OrganismsGoalMonth = () => {
   };
 
   const { data, refetch } = usefetchGoalMonth();
-
   const totalPrice = Number(data?.total_price) || 0;
   const initialGoal = totalPrice + totalPrice * 0.2;
-
   const currentGoal = Number(data?.goal_value) || 0;
   const progress =
-    initialGoal > 0 ? ((initialGoal - currentGoal) / initialGoal) * 100 : 0;
+    currentGoal >= initialGoal
+      ? 100
+      : ((initialGoal - currentGoal) / (initialGoal - totalPrice)) * 100;
+  const progressCapped = Math.max(0, Math.min(progress, 100));
 
   const updateValue = async () => {
     if (!value) {
@@ -64,7 +65,7 @@ const OrganismsGoalMonth = () => {
       </AtomsText>
       <div className={style.circule}>
         <CircularProgressbarWithChildren
-          value={progress}
+          value={progressCapped}
           styles={buildStyles({
             pathColor: "green",
             trailColor: "#d6d6d6",
