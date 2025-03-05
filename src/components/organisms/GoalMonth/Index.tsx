@@ -66,11 +66,18 @@ const OrganismsGoalMonth = () => {
             textColor: "green",
           })}
         >
-          <AtomsText fontSize="24px" fontWeight="bold" color="green">
+          <AtomsText fontSize="16px" fontWeight="bold" color="green">
             {currencyMask(totalPrice)}
           </AtomsText>
         </CircularProgressbarWithChildren>
       </div>
+      <AtomsText
+        fontSize="24px"
+        fontWeight="bold"
+        color={currentGoal < totalPrice ? "red" : "green"}
+      >
+        Preço recuperado: {currencyMask(currentGoal)}
+      </AtomsText>
       <div className={style.footer}>
         <MoleculesFormInputFloatLabel
           label="valor ganho"
