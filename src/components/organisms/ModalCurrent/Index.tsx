@@ -17,7 +17,7 @@ const OrganismsModalCurrent = ({ isModalOpen, handleCloseModal }: any) => {
       loading={loading}
       error={error}
       textSave="Atualizar"
-      title="Adicionar produto"
+      title="Gastos no mês"
       onSave={loadProducts}
       onCancel={handleCloseModal}
     >
