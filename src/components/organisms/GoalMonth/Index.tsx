@@ -61,13 +61,17 @@ const OrganismsGoalMonth = () => {
         <CircularProgressbarWithChildren
           value={progress}
           styles={buildStyles({
-            pathColor: "green",
+            pathColor: `${currentGoal < totalPrice ? "red" : "green"}`,
             trailColor: "#d6d6d6",
-            textColor: "green",
+            textColor: `${currentGoal < totalPrice ? "red" : "green"}`,
           })}
         >
-          <AtomsText fontSize="16px" fontWeight="bold" color="green">
-            {currencyMask(totalPrice)}
+          <AtomsText
+            fontSize="16px"
+            fontWeight="bold"
+            color={currentGoal < totalPrice ? "red" : "green"}
+          >
+            {currencyMask(totalPrice - currentGoal)}
           </AtomsText>
         </CircularProgressbarWithChildren>
       </div>
