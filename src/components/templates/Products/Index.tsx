@@ -29,13 +29,15 @@ const TemplateProducts = () => {
   };
 
   const handleDeleteProduct = async (id: number) => {
-    try {
-      await useDeleteProduct(id);
-      toast.success("Produto removido com sucesso!");
-      setRefreshKey((prev) => prev + 1);
-    } catch (error) {
+    const response = await await useDeleteProduct(id);
+
+    if (response?.status === "error") {
       toast.error("Erro ao remover produto");
+      return;
     }
+
+    setRefreshKey((prev) => prev + 1);
+    toast.success("Produto removido com sucesso!");
   };
 
   return (

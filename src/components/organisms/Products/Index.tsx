@@ -39,13 +39,15 @@ const OrganismsProducts = ({ onProductAdded }: any) => {
 
     const response = await usePostProduct(product);
 
-    if (response?.status === "success") {
-      toast.success("Produto adicionado com sucesso!");
-      handleCloseModal();
-      onProductAdded();
-    } else {
+    if (response?.status === "error") {
       toast.error("Erro ao adicionar produto.");
+      onProductAdded();
+      return;
     }
+
+    toast.success("Produto adicionado com sucesso!");
+    handleCloseModal();
+    onProductAdded();
   };
 
   return (
