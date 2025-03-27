@@ -34,11 +34,12 @@ const OrganismsProducts = ({ onProductAdded }: any) => {
       quantity: parseInt(quantity, 10),
       price: parseFloat(value.replace("R$", "").replace(",", ".")),
       description,
+      image: "https://via.placeholder.com/640x480.png/00ee44?text=non",
     };
 
     const response = await usePostProduct(product);
 
-    if (response?.message) {
+    if (response?.status === "success") {
       toast.success("Produto adicionado com sucesso!");
       handleCloseModal();
       onProductAdded();
